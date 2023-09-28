@@ -4,7 +4,7 @@ seguindo o padrão HTTP para as operações CRUD (Create, Read, Update, Delete).
 A API foi desenvolvida para proporcionar uma solução eficiente e escalável para 
 a administração de registros médicos.
 
-Características Principais:
+Características Principais
 
 Endpoint Paciente:
 
