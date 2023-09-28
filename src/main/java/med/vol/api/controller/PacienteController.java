@@ -1,5 +1,6 @@
 package med.vol.api.controller;
 
+import med.vol.api.medico.DadosDetalhamentoMedico;
 import med.vol.api.medico.DadosListagemMedico;
 import med.vol.api.medico.Medico;
 import med.vol.api.medico.MedicoRepository;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,10 +51,23 @@ public class PacienteController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void ExcluirPaciente(Long id){
+    public void ExcluirPaciente(@PathVariable Long id){
 
         var paciente = repository.getReferenceById(id);
         repository.deleteById(id);
+
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity detalharPaciente(@PathVariable Long id){
+
+        if (id == null) {
+            throw new IllegalArgumentException("O ID não pode ser nulo");
+        }
+
+        var paciente = repository.getReferenceById(id);
+
+        return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
 
     }
 }
