@@ -27,7 +27,10 @@ public class Medico {
     @Enumerated
     private Endereco endereco;
 
+    private Boolean ativo;
+
     public Medico(DadosCadastrarMedico dados) {
+        this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
         this.telefone = dados.telefone();
@@ -35,5 +38,25 @@ public class Medico {
         this.endereco = new Endereco(dados.endereco());
         this.especialidade = dados.especialidade();
 
+    }
+
+    public Medico atualizarInformacoes(DadosAtualizacaoMedico dados) {
+        if(dados.Nome()!= null){
+            this.nome = dados.Nome();
+        }
+        if (dados.telefone() != null){
+            this.telefone = dados.telefone();
+        }
+
+        if(dados.endereco() !=null){
+            this.endereco.atualizaInformacoes( dados.endereco());
+        }
+
+        return Medico.this;
+    }
+
+
+    public void excluir() {
+        this.ativo = false;
     }
 }
