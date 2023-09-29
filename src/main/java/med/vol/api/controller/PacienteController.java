@@ -1,10 +1,7 @@
 package med.vol.api.controller;
 
-import med.vol.api.medico.DadosDetalhamentoMedico;
-import med.vol.api.medico.DadosListagemMedico;
-import med.vol.api.medico.Medico;
-import med.vol.api.medico.MedicoRepository;
-import med.vol.api.paciente.*;
+import med.vol.api.domain.paciente.*;
+import med.vol.api.domain.paciente.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,9 +9,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
-import java.util.function.Function;
 
 @RestController
 @RequestMapping("/paciente")
