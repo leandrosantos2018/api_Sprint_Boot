@@ -35,21 +35,19 @@ public class TokenServices {
 
     }
 
-    public  String getSubject(String tokenJWT){
+    public String getSubject(String tokenJWT) {
         try {
-            var  algoritmo = Algorithm.HMAC256(secret);
-           return  JWT.require(algoritmo)
-                   .withIssuer(ISSUER)
+            var algoritmo = Algorithm.HMAC256(secret);
+            return JWT.require(algoritmo)
+                    .withIssuer("API Voll.med")
                     .build()
-                   .verify(tokenJWT)
-                   .getSubject();
-
-
-        } catch (JWTVerificationException exception){
-            throw  new RuntimeException("erro ao validar token",exception);
+                    .verify(tokenJWT)
+                    .getSubject();
+        } catch (JWTVerificationException exception) {
+            exception.printStackTrace();
+            throw new RuntimeException("Token JWT inválido ou expirado: " +tokenJWT);
         }
     }
-
     private Instant dataExpiracao() {
 
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
