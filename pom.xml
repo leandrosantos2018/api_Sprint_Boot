@@ -84,11 +84,7 @@
 			<artifactId>java-jwt</artifactId>
 			<version>4.2.1</version>
 		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-boot-starter</artifactId>
-			<version>3.0.0</version> <!-- Versão mais recente do Swagger para o Spring Boot -->
-		</dependency>
+
 
 		<dependency>
 			<groupId>javax.servlet</groupId>

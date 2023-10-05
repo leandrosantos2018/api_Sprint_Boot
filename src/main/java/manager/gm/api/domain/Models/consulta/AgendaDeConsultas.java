@@ -5,7 +5,7 @@ import manager.gm.api.domain.Models.consulta.validacoes.ValidadorAgendamentoCons
 import manager.gm.api.domain.Models.medico.Medico;
 import manager.gm.api.domain.Repository.MedicoRepository;
 import manager.gm.api.domain.Repository.PacienteRepository;
-import med.vol.api.domain.ValidacaoException;
+import manager.gm.api.infra.execption.ValidacaoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

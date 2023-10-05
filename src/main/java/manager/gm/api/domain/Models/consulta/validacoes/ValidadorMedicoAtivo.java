@@ -2,7 +2,7 @@ package manager.gm.api.domain.Models.consulta.validacoes;
 
 import manager.gm.api.domain.Dto.DadosAgendamentoConsulta;
 import manager.gm.api.domain.Repository.MedicoRepository;
-import med.vol.api.domain.ValidacaoException;
+import manager.gm.api.infra.execption.ValidacaoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

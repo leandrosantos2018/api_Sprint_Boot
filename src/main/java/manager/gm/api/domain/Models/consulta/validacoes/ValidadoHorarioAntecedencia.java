@@ -1,7 +1,7 @@
 package manager.gm.api.domain.Models.consulta.validacoes;
 
 import manager.gm.api.domain.Dto.DadosAgendamentoConsulta;
-import med.vol.api.domain.ValidacaoException;
+import manager.gm.api.infra.execption.ValidacaoException;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;

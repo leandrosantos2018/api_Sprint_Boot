@@ -32,6 +32,7 @@ public class UsuarioController {
 
         if(!repository.UsuarioExiste(dados.Login())){
             var usuario = new Usuario(dados.Login(),passwordEncoder.encode(dados.Senha()) );
+
             repository.save(usuario);
             return ResponseEntity.ok(usuario);
         }
