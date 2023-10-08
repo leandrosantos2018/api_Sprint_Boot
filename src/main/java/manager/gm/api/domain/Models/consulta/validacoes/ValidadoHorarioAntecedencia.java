@@ -15,7 +15,7 @@ public class ValidadoHorarioAntecedencia implements ValidadorAgendamentoConsulta
         var agora = LocalDateTime.now();
         var diferencaEmminuto = Duration.between(agora,dataConsulta).toMinutes();
 
-        if(diferencaEmminuto<30){
+        if(diferencaEmminuto>30){
             throw  new ValidacaoException("Consulta deve ser agenda com minimo 30 minuto");
         }
 

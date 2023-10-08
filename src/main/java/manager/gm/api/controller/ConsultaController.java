@@ -1,7 +1,7 @@
 package manager.gm.api.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import manager.gm.api.domain.Dto.DadosAgendamentoConsulta;
 import manager.gm.api.domain.Dto.DadosDetalhamentoConsulta;
@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/consultas")
-@Api(value = "Consulta Controller")
+@SecurityRequirement(name = "bearer-key")
+
 public class ConsultaController {
 
     @Autowired
@@ -24,11 +25,11 @@ public class ConsultaController {
 
     @PostMapping
     @Transactional
-    @ApiOperation(value = "Agendamento de Consulta")
+
     public ResponseEntity agendar(@RequestBody @Valid DadosAgendamentoConsulta dados){
 
         agenda.agendar(dados);
-        return  ResponseEntity.ok( new DadosDetalhamentoConsulta(null,null, null,null));
+        return  ResponseEntity.ok( new DadosDetalhamentoConsulta(dados.id(), dados.idMedico(), dados.idPaciente(), dados.data()));
 
     }
 

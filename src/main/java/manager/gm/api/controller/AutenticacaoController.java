@@ -1,7 +1,6 @@
 package manager.gm.api.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+
 import jakarta.validation.Valid;
 import manager.gm.api.domain.Dto.usuario.DadosAutenticacaoUsuario;
 import manager.gm.api.domain.Models.usuario.Usuario;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/login")
-@Api(value = "Autenticacao Controller")
+
 public class AutenticacaoController {
     @Autowired
     private AuthenticationManager manager;
@@ -27,7 +26,7 @@ public class AutenticacaoController {
     private TokenServices tokenServices;
 
     @PostMapping
-    @ApiOperation(value = "Efetuar Login")
+
     public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacaoUsuario dados) {
         try {
             var authenticationToken = new UsernamePasswordAuthenticationToken(dados.Login(), dados.Senha());

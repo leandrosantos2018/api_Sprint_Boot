@@ -9,6 +9,8 @@ import manager.gm.api.domain.Models.medico.Especialidade;
 import java.time.LocalDateTime;
 
 public record DadosAgendamentoConsulta(
+
+        Long id,
   @JsonAlias("Id_Medico") Long idMedico,
         @NotNull
         @JsonAlias("Id_Paciente")
@@ -16,7 +18,7 @@ public record DadosAgendamentoConsulta(
         @NotNull
         @Future
         @JsonAlias("Data_Agendamento")
-        @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+       // @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
         LocalDateTime data,
 
         Especialidade especialidade

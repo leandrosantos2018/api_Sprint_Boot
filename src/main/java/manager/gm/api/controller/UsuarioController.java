@@ -1,7 +1,8 @@
 package manager.gm.api.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import manager.gm.api.domain.Dto.paciente.DadosListagemPaciente;
 import manager.gm.api.domain.Dto.usuario.DadosCadastrarUsuario;
@@ -19,7 +20,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/usuario")
-@Api(value = "Usuario Controller", description = "Operações relacionadas a usuários")
+@SecurityRequirement(name = "bearer-key")
+
 public class UsuarioController {
 
     @Autowired
@@ -27,7 +29,6 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository repository;
     @PostMapping
-    @ApiOperation(value = "Cadastrar um novo usuário")
     public ResponseEntity cadastrarUsuario(@RequestBody @Valid DadosCadastrarUsuario dados){
 
         if(!repository.UsuarioExiste(dados.Login())){
@@ -41,7 +42,7 @@ public class UsuarioController {
 
     }
     @GetMapping
-    @ApiOperation(value = "Lista Operadores")
+
     public Page<DadosListagemUsuario> ListarOperadores(@PageableDefault(size = 10, sort = {"Login"}) Pageable pagina){
         return repository.findAll(pagina).map(DadosListagemUsuario:: new);
 

@@ -1,7 +1,7 @@
 package manager.gm.api.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import manager.gm.api.domain.Dto.medico.DadosAtualizacaoMedico;
 import manager.gm.api.domain.Dto.medico.DadosCadastrarMedico;
@@ -22,7 +22,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/medicos")
-@Api(value = "Medico Controller")
+@SecurityRequirement(name = "bearer-key")
+
 public class MedicoController {
 
     @Autowired
@@ -30,7 +31,7 @@ public class MedicoController {
 
     @PostMapping
     @Transactional
-    @ApiOperation(value = "Cadastrar Medico")
+
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastrarMedico dados, UriComponentsBuilder uibuilder){
 
         var medico = new Medico(dados);
@@ -40,8 +41,7 @@ public class MedicoController {
         return  ResponseEntity.created(uri).body(new DadosDetalhamentoMedico(medico));
     }
 
-    @GetMapping
-    @ApiOperation(value = "Listar Medicos")
+    @GetMapping()
     public ResponseEntity<Page<DadosListagemMedico>> Listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable pagina){
         var page = repository.findAllByAtivoTrue(pagina).map(DadosListagemMedico:: new);
         return  ResponseEntity.ok(page);
@@ -50,7 +50,7 @@ public class MedicoController {
 
     @PutMapping
     @Transactional
-    @ApiOperation(value = "Atualizar Medico")
+
     public ResponseEntity Atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados){
 
         Long id = dados.id();
@@ -64,7 +64,7 @@ public class MedicoController {
     }
     @DeleteMapping("/{id}")
     @Transactional
-    @ApiOperation(value = "Excluir Medicos")
+
     public ResponseEntity excluir(@PathVariable Long id){
        var medico =  repository.getReferenceById(id);
        medico.ExclusaoLogica();
@@ -74,7 +74,6 @@ public class MedicoController {
     }
 
     @GetMapping("/{id}")
-    @ApiOperation(value = "detalhar Medicos")
 
     public ResponseEntity detalhar(@PathVariable Long id){
 
