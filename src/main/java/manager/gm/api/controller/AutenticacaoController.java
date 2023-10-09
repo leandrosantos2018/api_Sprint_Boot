@@ -2,7 +2,7 @@ package manager.gm.api.controller;
 
 
 import jakarta.validation.Valid;
-import manager.gm.api.domain.Dto.usuario.DadosAutenticacaoUsuario;
+import manager.gm.api.domain.Dto.usuario.DadosListagemUsuario;
 import manager.gm.api.domain.Models.usuario.Usuario;
 import manager.gm.api.infra.security.DadosTokenJWT;
 import manager.gm.api.infra.security.TokenServices;
@@ -27,7 +27,7 @@ public class AutenticacaoController {
 
     @PostMapping
 
-    public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacaoUsuario dados) {
+    public ResponseEntity efetuarLogin(@RequestBody @Valid DadosListagemUsuario.DadosAutenticacaoUsuario dados) {
         try {
             var authenticationToken = new UsernamePasswordAuthenticationToken(dados.Login(), dados.Senha());
             var authentication = manager.authenticate(authenticationToken);
