@@ -1,8 +1,4 @@
-package manager.gm.api.domain.Dto.usuario;
+package manager.gm.api.domain.Dto;
 
-
-
-
-public record DadosAutenticacaoUsuario(String Login, String Senha) {
-
+public record DadosAutenticacaoUsuario(String Login , String Senha) {
 }
