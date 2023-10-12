@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Table(name ="usuarios")
-@Entity(name = "usuarios")
+@Entity(name = "Usuario")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,9 +29,12 @@ public class Usuario  implements UserDetails {
     private String login;
     private String Senha;
 
+
+
     public Usuario(String Login, String Senha) {
         this.login = Login;
         this.Senha =  Senha;
+
     }
 
 

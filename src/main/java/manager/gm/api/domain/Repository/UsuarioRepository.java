@@ -14,4 +14,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario,Long> {
             select count(*) > 0 from Usuario u where u.login=:login
             """)
     boolean UsuarioExiste(String  login);
+
+
 }

@@ -1,0 +1,1 @@
+INSERT INTO  USUARIOS(Login,Senha)  VALUES("adm@adm.com"," $2a$10$Y50UaMFOxteibQEYLrwuHeehHYfcoafCopUazP12.rqB41bsolF5.");
