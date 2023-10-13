@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 public interface UsuarioRepository extends JpaRepository<Usuario,Long> {
 
     UserDetails findByLogin(String login);
+    
 
     @Query("""
             select count(*) > 0 from Usuario u where u.login=:login

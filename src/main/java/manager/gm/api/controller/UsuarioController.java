@@ -46,15 +46,15 @@ public class UsuarioController {
         return repository.findAll();
 
     }
-//    @DeleteMapping("Excluir/{id}")
-//   // @RequestMapping(value = "/Excluir/{id}", method = RequestMethod.DELETE)
-//
-//    public  void exCluirUsuario(DadosCadastrarUsuario dados){
-//
-//
-//
-//
-//    }
+    @DeleteMapping("Excluir/{id}")
+   // @RequestMapping(value = "/Excluir/{id}", method = RequestMethod.DELETE)
+
+    public  void exCluirUsuario(DadosCadastrarUsuario dados){
+
+
+
+
+    }
 
 
 
