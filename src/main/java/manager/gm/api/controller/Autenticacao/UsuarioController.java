@@ -1,4 +1,4 @@
-package manager.gm.api.controller;
+package manager.gm.api.controller.Autenticacao;
 
 
 import io.swagger.v3.oas.annotations.Parameter;
@@ -34,7 +34,7 @@ public class UsuarioController {
             var usuario = new Usuario(dados.Login(),passwordEncoder.encode(dados.Senha()));
 
             repository.save(usuario);
-            return ResponseEntity.ok(usuario);
+            return ResponseEntity.status(201).body("Usuario Cacadstrado com Sucesso!!");
         }
 
         return ResponseEntity.badRequest().body("Usuario já cadastrado");
@@ -48,11 +48,7 @@ public class UsuarioController {
     }
     @DeleteMapping("Excluir/{id}")
    // @RequestMapping(value = "/Excluir/{id}", method = RequestMethod.DELETE)
-
-    public  void exCluirUsuario(DadosCadastrarUsuario dados){
-
-
-
+    public  void excluirUsuario(@PathVariable Long Id){
 
     }
 

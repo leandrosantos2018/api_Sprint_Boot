@@ -1,4 +1,4 @@
-package manager.gm.api.domain.Models.usuario;
+package manager.gm.api.domain;
 
 import manager.gm.api.domain.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

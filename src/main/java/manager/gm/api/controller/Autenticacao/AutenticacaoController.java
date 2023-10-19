@@ -1,4 +1,4 @@
-package manager.gm.api.controller;
+package manager.gm.api.controller.Autenticacao;
 
 
 import jakarta.validation.Valid;
