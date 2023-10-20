@@ -3,6 +3,7 @@ package manager.gm.api.domain.Repository;
 import manager.gm.api.domain.Dto.usuario.DadosCadastrarUsuario;
 import manager.gm.api.domain.Models.usuario.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -21,11 +22,13 @@ public interface UsuarioRepository extends JpaRepository<Usuario,Long> {
     @Query("""
             select u.id, u.login, u.Senha from Usuario u where login=:login
             """)
-    Object findUsuario (String login);
+    Usuario findUsuario (String login);
 
 
     @Query("""
             update Usuario u set Senha=:senha where login=:login
+                        
             """)
-    void alteraSenha(String login , String senha);
+    @Modifying
+    int alteraSenha(String login , String senha);
 }
