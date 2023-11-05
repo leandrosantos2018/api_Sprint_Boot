@@ -17,13 +17,14 @@ public class SpringDocConfigurations {
                 .components(new Components()
                         .addSecuritySchemes("bearer-key",
                                 new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT"))).info(new Info()
-                        .title("Voll.med API")
-                        .description("API Rest da aplicação Voll.med, contendo as funcionalidades de CRUD de médicos e de pacientes, além de agendamento e cancelamento de consultas")
+                        .title("GM Consultoria API")
+                        .description("API  Rest de gestão de consultoria , além de agendamento e cancelamento de consultoria")
+                        .version("1.0")
                         .contact(new Contact()
                                 .name("Squard Backend")
-                                .email("backend@voll.med"))
+                                .email("backend@nmd.com"))
                         .license(new License()
                                 .name("Apache 2.0")
-                                .url("http://voll.med/api/licenca")));
+                                .url("www.nmdsolucoesdigitais.com.br")));
     }
 }

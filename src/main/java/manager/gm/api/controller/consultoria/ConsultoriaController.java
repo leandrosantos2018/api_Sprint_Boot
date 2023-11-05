@@ -1,14 +1,20 @@
 package manager.gm.api.controller.consultoria;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
-import manager.gm.api.domain.Dto.consultoria.DadosTipoConsultoria;
+import manager.gm.api.domain.dto.consultoria.DadosTipoConsultoria;
 
-import manager.gm.api.domain.Models.consultoria.TipoConsultoria;
-import manager.gm.api.domain.Repository.TipoConsultoriaRepository;
+import manager.gm.api.domain.models.cliente.Cliente;
+import manager.gm.api.domain.models.consultoria.TipoConsultoria;
+import manager.gm.api.domain.repository.TipoConsultoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/TipoConsultoria")
@@ -17,7 +23,8 @@ public class ConsultoriaController {
 
     @Autowired
     private TipoConsultoriaRepository repository;
-    @PostMapping("/Cadstrar")
+    @PostMapping("/Cadastrar")
+    @Operation(tags = "Tipo Consultoria")
     public ResponseEntity CadastrarTipoConsultoria(@RequestBody DadosTipoConsultoria dados){
 
      var Consultoria = new TipoConsultoria(dados.idTipoConsultoria(),
@@ -31,7 +38,15 @@ public class ConsultoriaController {
 
     }
 
-    @DeleteMapping("Excluir/{id}")
+    @GetMapping("/Consulta")
+    @Operation(tags = "Tipo Consultoria")
+    public List<TipoConsultoria> ListarTipoConsultoria(@PageableDefault(size = 10, sort = {"id"}) Pageable pagina){
+        return repository.findAll();
+    }
+
+
+    @DeleteMapping("/Excluir/{id}")
+    @Operation(tags = "Tipo Consultoria")
     public ResponseEntity ExcluirTipoConsultoria(@PathVariable Long id){
         try {
             var tipoconsultoria = repository.getReferenceById(id);
@@ -41,10 +56,6 @@ public class ConsultoriaController {
             return ResponseEntity.ok(ex.getStackTrace());
         }
 
-
     }
-
-
-
 
 }
