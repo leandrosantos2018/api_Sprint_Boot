@@ -1,3 +1,5 @@
+package manager.gm.api.domain.models.projeto;
+
 import jakarta.persistence.*;
 
 
@@ -10,9 +12,7 @@ public class Projeto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_projeto")
     private Long idProjeto;
-
     private String nomeProjeto;
-
     @Column(name = "descricao_projeto", columnDefinition = "TEXT")
     private String descricaoProjeto;
 

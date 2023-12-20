@@ -5,7 +5,6 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 import manager.gm.api.domain.dto.consultoria.DadosTipoConsultoria;
 
-import manager.gm.api.domain.models.cliente.Cliente;
 import manager.gm.api.domain.models.consultoria.TipoConsultoria;
 import manager.gm.api.domain.repository.TipoConsultoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

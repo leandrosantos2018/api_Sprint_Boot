@@ -2,7 +2,6 @@ package manager.gm.api.controller.autenticacao;
 
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import manager.gm.api.domain.dto.usuario.DadosAlterarUsuario;
 import manager.gm.api.domain.dto.usuario.DadosCadastrarUsuario;
@@ -20,7 +19,7 @@ import java.util.List;
 @RestController("Usuario")
 @RequestMapping("/usuario")
 
-@SecurityRequirement(name = "bearer-key")
+//@SecurityRequirement(name = "bearer-key")
 
 public class UsuarioController {
 

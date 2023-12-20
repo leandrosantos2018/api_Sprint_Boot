@@ -29,7 +29,9 @@ public class AutenticacaoController {
     @Operation(tags = "Login")
 
     public ResponseEntity efetuarLogin(@RequestBody @Valid DadosListagemUsuario.DadosAutenticacaoUsuario dados) {
+
         try {
+
             var authenticationToken = new UsernamePasswordAuthenticationToken(dados.Login(), dados.Senha());
             var authentication = manager.authenticate(authenticationToken);
 

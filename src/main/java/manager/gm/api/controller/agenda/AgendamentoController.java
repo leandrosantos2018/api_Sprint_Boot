@@ -26,7 +26,7 @@ public class AgendamentoController {
 
 
 
-    @PostMapping("/Cadastrar")
+    @PostMapping("/Agendar")
     @Operation(tags = "Agendamento")
     public ResponseEntity<DadosAgendamento> CadastrarAgendamento(@RequestBody DadosAgendamento dados){
         var agendamento = agendamentoServices.CreateAgendamento(dados);
