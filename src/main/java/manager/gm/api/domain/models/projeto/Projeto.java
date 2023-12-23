@@ -16,7 +16,12 @@ public class Projeto {
     @Column(name = "descricao_projeto", columnDefinition = "TEXT")
     private String descricaoProjeto;
 
-   // @ManyToOne
+    public Projeto(String nomeProjeto, String descricaoProjeto) {
+        this.nomeProjeto = nomeProjeto;
+        this.descricaoProjeto = descricaoProjeto;
+    }
+
+    // @ManyToOne
    // @JoinColumn(name = "id_gerente_responsavel")
     // private Gerente gerenteResponsavel;
 
